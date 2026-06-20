@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Added Course II - MSc Students | Jamal Mohamed College</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; } 
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .college-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .college-info h2 {
+            font-size: 1.5em;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .college-info .tagline {
+            font-style: italic;
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .professors {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .professor-card {
+            background: rgba(255,255,255,0.15);
+            padding: 15px 25px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+            backdrop-filter: blur(10px);
+        }
+        
+        .professor-card h3 { color: #ffd700; font-size: 1.2em; margin-bottom: 5px; }
+        .professor-card p { color: white; margin: 3px 0; }
+        .professor-card small { color: #e0e0e0; }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
+        
+        .main-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            border: 3px solid transparent;
+        }
+        
+        .menu-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+        
+        .menu-card.unit-1 { background: linear-gradient(135deg, #ff6b6b 0%, #ffe66d 100%); color: white; }
+        .menu-card.unit-2 { background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%); color: white; }
+        .menu-card.unit-3 { background: linear-gradient(135deg, #a8e6cf 0%, #7fdbda 100%); color: #2c3e50; }
+        .menu-card.unit-4 { background: linear-gradient(135deg, #ffd93d 0%, #ff6b6b 100%); color: white; }
+        .menu-card.unit-5 { background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); color: white; }
+        
+        .menu-card h3 { font-size: 1.8em; margin-bottom: 15px; }
+        .menu-card p { font-size: 1.1em; margin-bottom: 10px; }
+        .menu-card small { opacity: 0.9; }
+        
+        .content-section {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .content-section.active { display: block; animation: fadeIn 0.5s; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .topic-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .topic-box h3 { color: #2c3e50; margin-bottom: 15px; font-size: 1.5em; }
+        .topic-box p { color: #555; line-height: 1.8; margin-bottom: 15px; }
+        
+        .diagram-container {
+            background: white;
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .diagram-container h4 { color: #667eea; margin-bottom: 20px; font-size: 1.3em; }
+        
+        .exam-hint {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-left: 5px solid #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .exam-hint h4 { color: #d63031; margin-bottom: 10px; font-size: 1.2em; }
+        .exam-hint p { color: #555; line-height: 1.8; }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .btn-secondary { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .btn-tertiary { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        
+        .quiz-container {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .quiz-container.active { display: block; animation: fadeIn 0.5s; }
+        
+        .question-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .question-text { font-size: 1.2em; color: #2c3e50; margin-bottom: 20px; font-weight: 600; }
+        
+        .options { display: grid; gap: 15px; }
+        
+        .option {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover { background: #667eea; color: white; border-color: #667eea; }
+        .option.correct { background: #00b894; color: white; border-color: #00b894; }
+        .option.wrong { background: #d63031; color: white; border-color: #d63031; }
+        
+        .score-board {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.3em;
+        }
+        
+        .motivation-box {
+            display: none;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .motivation-box.active { display: block; animation: fadeIn 0.5s; }
+        .motivation-box h2 { font-size: 2.5em; margin-bottom: 20px; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .motivation-box p { font-size: 1.3em; color: white; line-height: 1.8; }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00b894, #00cec9);
+            transition: width 0.3s;
+        }
+        
+        .back-btn { background: #95a5a6; margin-bottom: 20px; }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        
+        .test-summary {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .test-summary h3 { color: #2c3e50; margin-bottom: 15px; font-size: 1.5em; }
+        
+        @media (max-width: 768px) {
+            .college-info h1 { font-size: 1.8em; }
+            .college-info h2 { font-size: 1.2em; }
+            .professors { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <div class="college-info">
+                <h1>🕌 Jamal Mohamed College (Autonomous)</h1>
+                <h2>Value Added Course II - MSc Students</h2>
+                <p class="tagline">"Show Us The Right Path" | Since 1951</p>
+                <div class="professors">
+                    <div class="professor-card">
+                        <h3>👨‍🏫 Dr. A. Basheer Ahamed</h3>
+                        <p>Assistant Professor</p>
+                        <small>Jamal Mohamed College, Trichy-20</small>
+                    </div>
+                    <div class="professor-card">
+                        <h3>👨‍🏫 Dr. S.A. Jameel</h3>
+                        <p>Assistant Professor</p>
+                        <small>Jamal Mohamed College, Trichy-20</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Main Menu -->
+        <div id="mainMenu" class="main-menu">
+            <div class="menu-card unit-1" onclick="showUnit(1)">
+                <h3>📊 Unit I</h3>
+                <p>Introduction to Data Visualization</p>
+                <small>📚 Learn • ✍️ Practice • 🎯 Test</small>
+            </div>
+            <div class="menu-card unit-2" onclick="showUnit(2)">
+                <h3>🎨 Unit II</h3>
+                <p>Visualization Design Principles</p>
+                <small>📚 Learn • ✍️ Practice • 🎯 Test</small>
+            </div>
+            <div class="menu-card unit-3" onclick="showUnit(3)">
+                <h3>📈 Unit III</h3>
+                <p>Charts, Graphs and Visual Techniques</p>
+                <small>📚 Learn • ✍️ Practice • 🎯 Test</small>
+            </div>
+            <div class="menu-card unit-4" onclick="showUnit(4)">
+                <h3>📱 Unit IV</h3>
+                <p>Dashboard and Reporting Tools</p>
+                <small>📚 Learn • ✍️ Practice • 🎯 Test</small>
+            </div>
+            <div class="menu-card unit-5" onclick="showUnit(5)">
+                <h3>🏥 Unit V</h3>
+                <p>Applications and Case Studies</p>
+                <small>📚 Learn • ✍️ Practice • 🎯 Test</small>
+            </div>
+        </div>
+
+        <!-- Unit 1 Content -->
+        <div id="unit1" class="content-section">
+            <button class="btn back-btn" onclick="backToMenu()">← Back to Menu</button>
+            <h2 style="color: #ff6b6b; margin-bottom: 20px; font-size: 2.5em;">📊 Unit I: Introduction to Data Visualization</h2>
+            
+            <div class="topic-box">
+                <h3>📌 Importance of Data Visualization in Data Science</h3>
+                <p>Data visualization is the graphical representation of information and data. By using visual elements like charts, graphs, and maps, data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data.</p>
+                <p><strong>Key Benefits:</strong></p>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li>✅ Makes complex data understandable</li>
+                    <li>✅ Reveals patterns and trends</li>
+                    <li>✅ Facilitates quick decision-making</li>
+                    <li>✅ Enables storytelling with data</li>
+                    <li>✅ Improves data retention and recall</li>
+                </ul>
+            </div>
+
+            <div class="diagram-container">
+                <h4>📊 Data Visualization Workflow Diagram</h4>
+                <svg viewBox="0 0 800 200" style="width: 100%; max-width: 800px;">
+                    <rect x="10" y="70" width="120" height="60" fill="#667eea" rx="10"/>
+                    <text x="70" y="95" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Data</text>
+                    <text x="70" y="110" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Collection</text>
+                    
+                    <line x1="130" y1="100" x2="170" y2="100" stroke="#764ba2" stroke-width="3" marker-end="url(#arrow1)"/>
+                    
+                    <rect x="170" y="70" width="120" height="60" fill="#764ba2" rx="10"/>
+                    <text x="230" y="95" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Data</text>
+                    <text x="230" y="110" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Processing</text>
+                    
+                    <line x1="290" y1="100" x2="330" y2="100" stroke="#667eea" stroke-width="3" marker-end="url(#arrow1)"/>
+                    
+                    <rect x="330" y="70" width="120" height="60" fill="#667eea" rx="10"/>
+                    <text x="390" y="95" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Data</text>
+                    <text x="390" y="110" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Analysis</text>
+                    
+                    <line x1="450" y1="100" x2="490" y2="100" stroke="#764ba2" stroke-width="3" marker-end="url(#arrow1)"/>
+                    
+                    <rect x="490" y="70" width="120" height="60" fill="#764ba2" rx="10"/>
+                    <text x="550" y="95" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Visual</text>
+                    <text x="550" y="110" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Representation</text>
+                    
+                    <line x1="610" y1="100" x2="650" y2="100" stroke="#667eea" stroke-width="3" marker-end="url(#arrow1)"/>
+                    
+                    <rect x="650" y="70" width="120" height="60" fill="#667eea" rx="10"/>
+                    <text x="710" y="95" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Insights &</text>
+                    <text x="710" y="110" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Decisions</text>
+                    
+                    <defs>
+                        <marker id="arrow1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#764ba2"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="topic-box">
+                <h3>📊 Types of Data</h3>
+                <p><strong>1. Quantitative Data:</strong> Numerical data that can be measured (e.g., height, weight, temperature)</p>
+                <p><strong>2. Qualitative Data:</strong> Descriptive data that can be observed but not measured (e.g., colors, textures)</p>
+                <p><strong>3. Categorical Data:</strong> Data that can be grouped into categories (e.g., gender, product types)</p>
+                <p><strong>4. Time Series Data:</strong> Data collected over time intervals</p>
+            </div>
+
+            <div class="diagram-container">
+                <h4>🗂️ Data Types Classification Diagram</h4>
+                <svg viewBox="0 0 600 300" style="width: 100%; max-width: 600px;">
+                    <rect x="200" y="10" width="200" height="50" fill="#667eea" rx="10"/>
+                    <text x="300" y="40" text-anchor="middle" fill="white" font-size="14" font-weight="bold">DATA</text>
+                    
+                    <line x1="300" y1="60" x2="150" y2="100" stroke="#667eea" stroke-width="2"/>
+                    <line x1="300" y1="60" x2="450" y2="100" stroke="#667eea" stroke-width="2"/>
+                    
+                    <rect x="50" y="100" width="200" height="50" fill="#ff6b6b" rx="10"/>
+                    <text x="150" y="130" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Quantitative</text>
+                    
+                    <rect x="350" y="100" width="200" height="50" fill="#4ecdc4" rx="10"/>
+                    <text x="450" y="130" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Qualitative</text>
+                    
+                    <line x1="150" y1="150" x2="80" y2="190" stroke="#ff6b6b" stroke-width="2"/>
+                    <line x1="150" y1="150" x2="220" y2="190" stroke="#ff6b6b" stroke-width="2"/>
+                    
+                    <rect x="20" y="190" width="120" height="40" fill="#ffe66d" rx="8"/>
+                    <text x="80" y="215" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">Discrete</text>
+                    
+                    <rect x="160" y="190" width="120" height="40" fill="#ffe66d" rx="8"/>
+                    <text x="220" y="215" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">Continuous</text>
+                    
+                    <line x1="450" y1="150" x2="380" y2="190" stroke="#4ecdc4" stroke-width="2"/>
+                    <line x1="450" y1="150" x2="520" y2="190" stroke="#4ecdc4" stroke-width="2"/>
+                    
+                    <rect x="320" y="190" width="120" height="40" fill="#a8e6cf" rx="8"/>
+                    <text x="380" y="215" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">Nominal</text>
+                    
+                    <rect x="460" y="190" width="120" height="40" fill="#a8e6cf" rx="8"/>
+                    <text x="520" y="215" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">Ordinal</text>
+                    
+                    <text x="80" y="260" text-anchor="middle" fill="#555" font-size="10">e.g., Count</text>
+                    <text x="220" y="260" text-anchor="middle" fill="#555" font-size="10">e.g., Height</text>
+                    <text x="380" y="260" text-anchor="middle" fill="#555" font-size="10">e.g., Colors</text>
+                    <text x="520" y="260" text-anchor="middle" fill="#555" font-size="10">e.g., Rankings</text>
+                </svg>
+            </div>
+
+            <div class="exam-hint">
+                <h4>💡 Exam Hint</h4>
+                <p>✓ Remember the difference between quantitative and qualitative data with examples<br>
+                ✓ Focus on the data visualization workflow steps (5 steps)<br>
+                ✓ Learn at least 5 data visualization tools with their features<br>
+                ✓ Practice drawing the workflow diagram<br>
+                ✓ Understand the importance of visualization in data science</p>
+            </div>
+
+            <div class="test-summary">
+                <h3>🎯 Ready to Test Your Knowledge?</h3>
+                <p>Choose your test mode below:</p>
+            </div>
+            <button class="btn" onclick="startTest(1, 'mcq')">📝 MCQ Test (20 Questions)</button>
+            <button class="btn btn-secondary" onclick="startTest(1, 'fillup')">✍️ Fill-up Test (5 Questions)</button>
+            <button class="btn btn-tertiary" onclick="startTest(1, 'twomark')">💡 Two-Mark Test (5 Questions)</button>
+        </div>
+
+        <!-- Unit 2 Content -->
+        <div id="unit2" class="content-section">
+            <button class="btn back-btn" onclick="backToMenu()">← Back to Menu</button>
+            <h2 style="color: #4ecdc4; margin-bottom: 20px; font-size: 2.5em;">🎨 Unit II: Visualization Design Principles</h2>
+            
+            <div class="topic-box">
+                <h3>👁️ Visual Perception and Cognition</h3>
+                <p>Visual perception is the ability to interpret the surrounding environment through light in the visible spectrum. Cognition involves mental processes such as attention, memory, and problem-solving that help us understand visual information.</p>
+                <p><strong>Gestalt Principles:</strong></p>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li><strong>Proximity:</strong> Objects close together are perceived as related</li>
+                    <li><strong>Similarity:</strong> Similar objects are perceived as related</li>
+                    <li><strong>Closure:</strong> We fill in gaps to create complete shapes</li>
+                    <li><strong>Continuity:</strong> We perceive continuous patterns</li>
+                    <li><strong>Common Fate:</strong> Elements moving together are related</li>
+                </ul>
+            </div>
+
+            <div class="diagram-container">
+                <h4>🎨 Color Wheel and Theory Diagram</h4>
+                <svg viewBox="0 0 400 400" style="width: 300px;">
+                    <circle cx="200" cy="200" r="150" fill="url(#colorWheel)"/>
+                    <circle cx="200" cy="200" r="80" fill="white"/>
+                    <text x="200" y="195" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">Color</text>
+                    <text x="200" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">Wheel</text>
+                    
+                    <!-- Color labels -->
+                    <text x="200" y="40" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff0000">Red</text>
+                    <text x="360" y="205" text-anchor="middle" font-size="12" font-weight="bold" fill="#00ff00">Green</text>
+                    <text x="200" y="370" text-anchor="middle" font-size="12" font-weight="bold" fill="#0000ff">Blue</text>
+                    <text x="40" y="205" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffff00">Yellow</text>
+                    
+                    <defs>
+                        <radialGradient id="colorWheel">
+                            <stop offset="0%" style="stop-color:#ff0000"/>
+                            <stop offset="17%" style="stop-color:#ff00ff"/>
+                            <stop offset="33%" style="stop-color:#0000ff"/>
+                            <stop offset="50%" style="stop-color:#00ffff"/>
+                            <stop offset="67%" style="stop-color:#00ff00"/>
+                            <stop offset="83%" style="stop-color:#ffff00"/>
+                            <stop offset="100%" style="stop-color:#ff0000"/>
+                        </radialGradient>
+                    </defs>
+                </svg>
+                <p style="margin-top: 15px; color: #555;"><strong>Color Schemes:</strong> Complementary (opposite) | Analogous (adjacent) | Triadic (three equidistant)</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>📐 Principles of Effective Visualization</h3>
+                <p><strong>1. Simplicity:</strong> Keep it simple - less is more<br>
+                <strong>2. Clarity:</strong> Make it clear and easy to understand<br>
+                <strong>3. Consistency:</strong> Maintain uniform design throughout<br>
+                <strong>4. Accuracy:</strong> Represent data truthfully<br>
+                <strong>5. Relevance:</strong> Include only necessary elements<br>
+                <strong>6. Accessibility:</strong> Make it understandable to all</p>
+            </div>
+
+            <div class="exam-hint">
+                <h4>💡 Exam Hint</h4>
+                <p>✓ Study all 5 Gestalt principles with examples<br>
+                ✓ Learn color schemes: complementary, analogous, triadic with diagrams<br>
+                ✓ Understand pre-attentive attributes (color, size, orientation, shape)<br>
+                ✓ Practice identifying good vs bad visualizations<br>
+                ✓ Remember the 6 principles of effective visualization</p>
+            </div>
+
+            <div class="test-summary">
+                <h3>🎯 Ready to Test Your Knowledge?</h3>
+                <p>Choose your test mode below:</p>
+            </div>
+            <button class="btn" onclick="startTest(2, 'mcq')">📝 MCQ Test (20 Questions)</button>
+            <button class="btn btn-secondary" onclick="startTest(2, 'fillup')">✍️ Fill-up Test (5 Questions)</button>
+            <button class="btn btn-tertiary" onclick="startTest(2, 'twomark')">💡 Two-Mark Test (5 Questions)</button>
+        </div>
+
+        <!-- Unit 3 Content -->
+        <div id="unit3" class="content-section">
+            <button class="btn back-btn" onclick="backToMenu()">← Back to Menu</button>
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-size: 2.5em;">📈 Unit III: Charts, Graphs and Visual Techniques</h2>
+            
+            <div class="topic-box">
+                <h3>📊 Chart Types and When to Use Them</h3>
+                <p><strong>Bar Charts:</strong> Best for comparing categories<br>
+                <strong>Line Charts:</strong> Ideal for showing trends over time<br>
+                <strong>Pie Charts:</strong> Show parts of a whole (use sparingly)<br>
+                <strong>Scatter Plots:</strong> Reveal relationships between variables<br>
+                <strong>Heat Maps:</strong> Display data density using color<br>
+                <strong>Bubble Charts:</strong> Show 3 variables (x, y, size)<br>
+                <strong>Tree Maps:</strong> Display hierarchical data</p>
+            </div>
+
+            <div class="diagram-container">
+                <h4>📊 Chart Selection Guide Diagram</h4>
+                <svg viewBox="0 0 600 350" style="width: 100%; max-width: 600px;">
+                    <rect x="10" y="10" width="180" height="80" fill="#ff6b6b" rx="10"/>
+                    <text x="100" y="40" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Comparison</text>
+                    <text x="100" y="60" text-anchor="middle" fill="white" font-size="11">→ Bar Chart</text>
+                    <text x="100" y="78" text-anchor="middle" fill="white" font-size="11">→ Column Chart</text>
+                    
+                    <rect x="210" y="10" width="180" height="80" fill="#4ecdc4" rx="10"/>
+                    <text x="300" y="40" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Trend Over Time</text>
+                    <text x="300" y="60" text-anchor="middle" fill="white" font-size="11">→ Line Chart</text>
+                    <text x="300" y="78" text-anchor="middle" fill="white" font-size="11">→ Area Chart</text>
+                    
+                    <rect x="410" y="10" width="180" height="80" fill="#a8e6cf" rx="10"/>
+                    <text x="500" y="40" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">Distribution</text>
+                    <text x="500" y="60" text-anchor="middle" fill="#2c3e50" font-size="11">→ Histogram</text>
+                    <text x="500" y="78" text-anchor="middle" fill="#2c3e50" font-size="11">→ Box Plot</text>
+                    
+                    <rect x="110" y="110" width="180" height="80" fill="#ffd93d" rx="10"/>
+                    <text x="200" y="140" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Relationship</text>
+                    <text x="200" y="160" text-anchor="middle" fill="white" font-size="11">→ Scatter Plot</text>
+                    <text x="200" y="178" text-anchor="middle" fill="white" font-size="11">→ Bubble Chart</text>
+                    
+                    <rect x="310" y="110" width="180" height="80" fill="#6c5ce7" rx="10"/>
+                    <text x="400" y="140" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Composition</text>
+                    <text x="400" y="160" text-anchor="middle" fill="white" font-size="11">→ Pie Chart</text>
+                    <text x="400" y="178" text-anchor="middle" fill="white" font-size="11">→ Stacked Bar</text>
+                    
+                    <rect x="210" y="210" width="180" height="80" fill="#fd79a8" rx="10"/>
+                    <text x="300" y="240" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Hierarchical</text>
+                    <text x="300" y="260" text-anchor="middle" fill="white" font-size="11">→ Tree Map</text>
+                    <text x="300" y="278" text-anchor="middle" fill="white" font-size="11">→ Sunburst</text>
+                    
+                    <rect x="210" y="310" width="180" height="30" fill="#00b894" rx="10"/>
+                    <text x="300" y="330" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Geographic → Maps</text>
+                </svg>
+            </div>
+
+            <div class="exam-hint">
+                <h4>💡 Exam Hint</h4>
+                <p>✓ Know when to use which chart type (most important!)<br>
+                ✓ Practice drawing different chart types<br>
+                ✓ Understand advantages and limitations of each chart<br>
+                ✓ Learn about multidimensional visualization techniques<br>
+                ✓ Remember: Bar=Comparison, Line=Trend, Pie=Composition, Scatter=Relationship</p>
+            </div>
+
+            <div class="test-summary">
+                <h3>🎯 Ready to Test Your Knowledge?</h3>
+                <p>Choose your test mode below:</p>
+            </div>
+            <button class="btn" onclick="startTest(3, 'mcq')">📝 MCQ Test (20 Questions)</button>
+            <button class="btn btn-secondary" onclick="startTest(3, 'fillup')">✍️ Fill-up Test (5 Questions)</button>
+            <button class="btn btn-tertiary" onclick="startTest(3, 'twomark')">💡 Two-Mark Test (5 Questions)</button>
+        </div>
+
+        <!-- Unit 4 Content -->
+        <div id="unit4" class="content-section">
+            <button class="btn back-btn" onclick="backToMenu()">← Back to Menu</button>
+            <h2 style="color: #d63031; margin-bottom: 20px; font-size: 2.5em;">📱 Unit IV: Dashboard and Reporting Tools</h2>
+            
+            <div class="topic-box">
+                <h3>📱 Dashboard Concepts and Design</h3>
+                <p>A dashboard is a visual display of the most important information needed to achieve one or more objectives, consolidated on a single screen so it can be monitored at a glance.</p>
+                <p><strong>Key Components:</strong></p>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li>📊 KPIs (Key Performance Indicators)</li>
+                    <li>🔍 Filters and Slicers for interactivity</li>
+                    <li>🔽 Drill-down capabilities</li>
+                    <li>⚡ Real-time data updates</li>
+                    <li>🎯 Clear visual hierarchy</li>
+                </ul>
+            </div>
+
+            <div class="diagram-container">
+                <h4>🎯 Sample Dashboard Layout Diagram</h4>
+                <svg viewBox="0 0 700 400" style="width: 100%; max-width: 700px;">
+                    <rect x="10" y="10" width="680" height="60" fill="#2c3e50" rx="5"/>
+                    <text x="350" y="45" text-anchor="middle" fill="white" font-size="16" font-weight="bold">📊 Sales Dashboard - Header</text>
+                    
+                    <rect x="10" y="80" width="220" height="150" fill="#3498db" rx="5"/>
+                    <text x="120" y="100" text-anchor="middle" fill="white" font-size="12" font-weight="bold">KPI Cards</text>
+                    <rect x="30" y="110" width="80" height="50" fill="white" rx="3"/>
+                    <text x="70" y="140" text-anchor="middle" fill="#2c3e50" font-size="10">Revenue</text>
+                    <rect x="130" y="110" width="80" height="50" fill="white" rx="3"/>
+                    <text x="170" y="140" text-anchor="middle" fill="#2c3e50" font-size="10">Sales</text>
+                    <rect x="30" y="170" width="80" height="50" fill="white" rx="3"/>
+                    <text x="70" y="200" text-anchor="middle" fill="#2c3e50" font-size="10">Orders</text>
+                    <rect x="130" y="170" width="80" height="50" fill="white" rx="3"/>
+                    <text x="170" y="200" text-anchor="middle" fill="#2c3e50" font-size="10">Profit</text>
+                    
+                    <rect x="240" y="80" width="220" height="150" fill="#e74c3c" rx="5"/>
+                    <text x="350" y="100" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Trend Chart</text>
+                    <path d="M 260 180 Q 290 150 320 160 T 380 130 T 440 110" stroke="white" stroke-width="3" fill="none"/>
+                    <circle cx="260" cy="180" r="4" fill="white"/>
+                    <circle cx="320" cy="160" r="4" fill="white"/>
+                    <circle cx="380" cy="130" r="4" fill="white"/>
+                    <circle cx="440" cy="110" r="4" fill="white"/>
+                    
+                    <rect x="470" y="80" width="220" height="150" fill="#27ae60" rx="5"/>
+                    <text x="580" y="100" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Filters & Slicers</text>
+                    <rect x="490" y="110" width="180" height="30" fill="white" rx="3"/>
+                    <text x="580" y="130" text-anchor="middle" fill="#2c3e50" font-size="10">📅 Date Range</text>
+                    <rect x="490" y="150" width="180" height="30" fill="white" rx="3"/>
+                    <text x="580" y="170" text-anchor="middle" fill="#2c3e50" font-size="10">🏷️ Category</text>
+                    <rect x="490" y="190" width="180" height="30" fill="white" rx="3"/>
+                    <text x="580" y="210" text-anchor="middle" fill="#2c3e50" font-size="10">🌍 Region</text>
+                    
+                    <rect x="10" y="240" width="335" height="150" fill="#9b59b6" rx="5"/>
+                    <text x="177" y="260" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Geographic Map / Analysis</text>
+                    <circle cx="100" cy="320" r="40" fill="white" opacity="0.5"/>
+                    <circle cx="250" cy="300" r="50" fill="white" opacity="0.5"/>
+                    
+                    <rect x="355" y="240" width="335" height="150" fill="#f39c12" rx="5"/>
+                    <text x="522" y="260" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Data Table / Grid</text>
+                    <rect x="375" y="270" width="295" height="25" fill="white" opacity="0.7"/>
+                    <rect x="375" y="300" width="295" height="25" fill="white" opacity="0.7"/>
+                    <rect x="375" y="330" width="295" height="25" fill="white" opacity="0.7"/>
+                    <rect x="375" y="360" width="295" height="25" fill="white" opacity="0.7"/>
+                </svg>
+            </div>
+
+            <div class="topic-box">
+                <h3>🔄 ETL Process (Extract, Transform, Load)</h3>
+                <p><strong>Extract:</strong> Get data from various sources (databases, files, APIs)<br>
+                <strong>Transform:</strong> Clean, format, aggregate, and prepare data<br>
+                <strong>Load:</strong> Put processed data into target system for visualization</p>
+            </div>
+
+            <div class="exam-hint">
+                <h4>💡 Exam Hint</h4>
+                <p>✓ Learn popular tools: Tableau, Power BI, QlikView (features & differences)<br>
+                ✓ Understand ETL process thoroughly<br>
+                ✓ Practice dashboard design principles<br>
+                ✓ Know the difference between filters and slicers<br>
+                ✓ Remember KPI definition and examples</p>
+            </div>
+
+            <div class="test-summary">
+                <h3>🎯 Ready to Test Your Knowledge?</h3>
+                <p>Choose your test mode below:</p>
+            </div>
+            <button class="btn" onclick="startTest(4, 'mcq')">📝 MCQ Test (20 Questions)</button>
+            <button class="btn btn-secondary" onclick="startTest(4, 'fillup')">✍️ Fill-up Test (5 Questions)</button>
+            <button class="btn btn-tertiary" onclick="startTest(4, 'twomark')">💡 Two-Mark Test (5 Questions)</button>
+        </div>
+
+        <!-- Unit 5 Content -->
+        <div id="unit5" class="content-section">
+            <button class="btn back-btn" onclick="backToMenu()">← Back to Menu</button>
+            <h2 style="color: #6c5ce7; margin-bottom: 20px; font-size: 2.5em;">🏥 Unit V: Applications and Case Studies</h2>
+            
+            <div class="topic-box">
+                <h3>🌍 Real-World Applications</h3>
+                <p><strong>🏥 Healthcare:</strong> Patient monitoring, disease outbreak tracking, clinical analytics<br>
+                <strong>💼 Business Intelligence:</strong> Sales analytics, customer segmentation, market trends<br>
+                <strong>📱 Social Media:</strong> Sentiment analysis, engagement metrics, network analysis<br>
+                <strong>🌐 Web Analytics:</strong> User behavior, conversion funnels, traffic sources<br>
+                <strong>🔬 Research:</strong> Data exploration, pattern discovery, scientific visualization</p>
+            </div>
+
+            <div class="diagram-container">
+                <h4>📊 Healthcare Dashboard Example Diagram</h4>
+                <svg viewBox="0 0 700 350" style="width: 100%; max-width: 700px;">
+                    <rect x="10" y="10" width="680" height="50" fill="#d63031" rx="5"/>
+                    <text x="350" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">🏥 Hospital Patient Monitoring Dashboard</text>
+                    
+                    <circle cx="100" cy="120" r="50" fill="#fd79a8" opacity="0.9"/>
+                    <text x="100" y="115" text-anchor="middle" fill="white" font-size="20" font-weight="bold">85%</text>
+                    <text x="100" y="135" text-anchor="middle" fill="white" font-size="11">Bed Occupancy</text>
+                    
+                    <circle cx="250" cy="120" r="50" fill="#00b894" opacity="0.9"/>
+                    <text x="250" y="115" text-anchor="middle" fill="white" font-size="20" font-weight="bold">24</text>
+                    <text x="250" y="135" text-anchor="middle" fill="white" font-size="11">New Admissions</text>
+                    
+                    <circle cx="400" cy="120" r="50" fill="#0984e3" opacity="0.9"/>
+                    <text x="400" y="115" text-anchor="middle" fill="white" font-size="20" font-weight="bold">12</text>
+                    <text x="400" y="135" text-anchor="middle" fill="white" font-size="11">Discharges</text>
+                    
+                    <circle cx="550" cy="120" r="50" fill="#e17055" opacity="0.9"/>
+                    <text x="550" y="115" text-anchor="middle" fill="white" font-size="20" font-weight="bold">3</text>
+                    <text x="550" y="135" text-anchor="middle" fill="white" font-size="11">Critical Cases</text>
+                    
+                    <rect x="10" y="190" width="335" height="150" fill="#6c5ce7" rx="5"/>
+                    <text x="177" y="210" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Patient Flow - Weekly Trend</text>
+                    <path d="M 30 280 L 80 260 L 130 270 L 180 240 L 230 250 L 280 230 L 320 220" stroke="white" stroke-width="3" fill="none"/>
+                    <circle cx="30" cy="280" r="4" fill="white"/>
+                    <circle cx="80" cy="260" r="4" fill="white"/>
+                    <circle cx="130" cy="270" r="4" fill="white"/>
+                    <circle cx="180" cy="240" r="4" fill="white"/>
+                    <circle cx="230" cy="250" r="4" fill="white"/>
+                    <circle cx="280" cy="230" r="4" fill="white"/>
+                    <circle cx="320" cy="220" r="4" fill="white"/>
+                    
+                    <rect x="355" y="190" width="335" height="150" fill="#fdcb6e" rx="5"/>
+                    <text x="522" y="210" text-anchor="middle" fill="#2d3436" font-size="12" font-weight="bold">Department-wise Distribution</text>
+                    <rect x="375" y="220" width="100" height="30" fill="#d63031" rx="3"/>
+                    <text x="425" y="240" text-anchor="middle" fill="white" font-size="10">Emergency 40%</text>
+                    <rect x="485" y="220" width="100" height="30" fill="#0984e3" rx="3"/>
+                    <text x="535" y="240" text-anchor="middle" fill="white" font-size="10">ICU 35%</text>
+                    <rect x="595" y="220" width="80" height="30" fill="#00b894" rx="3"/>
+                    <text x="635" y="240" text-anchor="middle" fill="white" font-size="10">General 25%</text>
+                    
+                    <rect x="375" y="260" width="300" height="20" fill="#d63031" rx="3" opacity="0.7"/>
+                    <rect x="375" y="285" width="260" height="20" fill="#0984e3" rx="3" opacity="0.7"/>
+                    <rect x="375" y="310" width="200" height="20" fill="#00b894" rx="3" opacity="0.7"/>
+                </svg>
+            </div>
+
+            <div class="topic-box">
+                <h3>📱 Case Study: COVID-19 Dashboard</h3>
+                <p><strong>Features:</strong></p>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li>✅ Real-time case tracking worldwide</li>
+                    <li>✅ Geographic spread visualization</li>
+                    <li>✅ Trend analysis and forecasting</li>
+                    <li>✅ Resource allocation monitoring</li>
+                    <li>✅ Public health decision support</li>
+                </ul>
+                <p><strong>Impact:</strong> Informed policies, public awareness, resource optimization, global collaboration</p>
+            </div>
+
+            <div class="exam-hint">
+                <h4>💡 Exam Hint</h4>
+                <p>✓ Study at least 3 detailed case studies (COVID, Business, Healthcare)<br>
+                ✓ Understand industry-specific visualization needs<br>
+                ✓ Learn about predictive analytics applications<br>
+                ✓ Focus on real-world problem-solving approaches<br>
+                ✓ Remember: BI = Faster decisions, Healthcare = Patient outcomes, Social Media = Engagement</p>
+            </div>
+
+            <div class="test-summary">
+                <h3>🎯 Ready to Test Your Knowledge?</h3>
+                <p>Choose your test mode below:</p>
+            </div>
+            <button class="btn" onclick="startTest(5, 'mcq')">📝 MCQ Test (20 Questions)</button>
+            <button class="btn btn-secondary" onclick="startTest(5, 'fillup')">✍️ Fill-up Test (5 Questions)</button>
+            <button class="btn btn-tertiary" onclick="startTest(5, 'twomark')">💡 Two-Mark Test (5 Questions)</button>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quizContainer" class="quiz-container">
+            <button class="btn back-btn" onclick="backToLearning()">← Back to Learning</button>
+            <div class="score-board">
+                <h3>📊 Test Progress - <span id="testTitle"></span></h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+                </div>
+                <p>Score: <span id="currentScore">0</span> / <span id="totalQuestions">0</span> | Question: <span id="questionNum">1</span> / <span id="totalQ">0</span></p>
+            </div>
+            <div id="questionContainer"></div>
+        </div>
+
+        <!-- Motivation Section -->
+        <div id="motivationSection" class="motivation-box">
+            <h2>🎉 Congratulations! 🎓</h2>
+            <p id="motivationText"></p>
+            <button class="btn" onclick="backToMenu()" style="margin-top: 20px; background: white; color: #667eea;">🏠 Continue Learning</button>
+        </div>
+    </div>
+
+    <script>
+        const questionBank = {
+            1: {
+                mcq: [
+                    { q: "What is the primary purpose of data visualization?", options: ["To make data look attractive", "To communicate information clearly", "To increase data size", "To reduce accuracy"], correct: 1 },
+                    { q: "Which is NOT a type of data?", options: ["Quantitative", "Qualitative", "Visual", "Categorical"], correct: 2 },
+                    { q: "Quantitative data is:", options: ["Descriptive", "Numerical", "Categorical", "Textual"], correct: 1 },
+                    { q: "Which tool is commonly used for data visualization?", options: ["Tableau", "Word", "Notepad", "Calculator"], correct: 0 },
+                    { q: "What is the first step in data visualization workflow?", options: ["Create charts", "Collect data", "Choose colors", "Publish"], correct: 1 },
+                    { q: "Time series data is collected:", options: ["Randomly", "Over time intervals", "Once", "Never"], correct: 1 },
+                    { q: "Data visualization helps in:", options: ["Hiding patterns", "Revealing trends", "Confusing users", "Slowing decisions"], correct: 1 },
+                    { q: "Which is qualitative data?", options: ["Temperature", "Height", "Color", "Weight"], correct: 2 },
+                    { q: "Data processing comes:", options: ["Before collection", "After collection", "After visualization", "Never"], correct: 1 },
+                    { q: "The final output of visualization is:", options: ["Raw data", "Insights", "Confusion", "Errors"], correct: 1 },
+                    { q: "Data visualization is important in:", options: ["Only business", "Only science", "All fields", "Only education"], correct: 2 },
+                    { q: "Which improves data retention?", options: ["Text only", "Visual elements", "Numbers only", "Tables only"], correct: 1 },
+                    { q: "Categorical data can be:", options: ["Measured", "Grouped", "Counted only", "Ignored"], correct: 1 },
+                    { q: "Data storytelling involves:", options: ["Only numbers", "Narrative with data", "Only text", "Only images"], correct: 1 },
+                    { q: "Patterns in data are revealed by:", options: ["Hiding data", "Visualization", "Deleting data", "Ignoring data"], correct: 1 },
+                    { q: "Decision-making is improved by:", options: ["Visual data", "No data", "Wrong data", "Old data"], correct: 0 },
+                    { q: "Data visualization workflow has:", options: ["One step", "Multiple steps", "No steps", "Random steps"], correct: 1 },
+                    { q: "Which is an example of quantitative data?", options: ["Red color", "50 kg", "Happy", "Large"], correct: 1 },
+                    { q: "Visualization tools provide:", options: ["Confusion", "Accessibility", "Complexity", "Errors"], correct: 1 },
+                    { q: "Data analysis happens:", options: ["Before processing", "After processing", "After visualization", "Never"], correct: 1 }
+                ],
+                fillup: [
+                    { q: "Data visualization is the ______ representation of data", answer: "graphical" },
+                    { q: "Quantitative data is ______ in nature", answer: "numerical" },
+                    { q: "The first step in workflow is data ______", answer: "collection" },
+                    { q: "Tableau is a popular ______ tool", answer: "visualization" },
+                    { q: "Qualitative data is ______ in nature", answer: "descriptive" }
+                ],
+                twomark: [
+                    { q: "Define data visualization", answer: "Data visualization is the graphical representation of information and data using visual elements like charts, graphs, and maps to communicate information clearly and effectively." },
+                    { q: "List types of data", answer: "1. Quantitative Data (numerical)\n2. Qualitative Data (descriptive)\n3. Categorical Data (grouped)\n4. Time Series Data (temporal)" },
+                    { q: "Explain data visualization workflow", answer: "1. Data Collection\n2. Data Processing\n3. Data Analysis\n4. Visualization\n5. Insights Generation" },
+                    { q: "What are the benefits of data visualization?", answer: "1. Makes complex data understandable\n2. Reveals patterns and trends\n3. Facilitates quick decision-making\n4. Improves data retention\n5. Enables storytelling" },
+                    { q: "Name visualization tools", answer: "1. Tableau\n2. Power BI\n3. Python (Matplotlib, Seaborn)\n4. R (ggplot2)\n5. QlikView\n6. Google Data Studio" }
+                ]
+            },
+            2: {
+                mcq: [
+                    { q: "Visual perception involves:", options: ["Hearing", "Seeing", "Touching", "Tasting"], correct: 1 },
+                    { q: "Gestalt principle of proximity means:", options: ["Similar objects", "Close objects", "Distant objects", "Colorful objects"], correct: 1 },
+                    { q: "Complementary colors are:", options: ["Same colors", "Opposite colors", "Similar colors", "Random colors"], correct: 1 },
+                    { q: "Cognition involves:", options: ["Physical movement", "Mental processes", "Emotions only", "Reflexes"], correct: 1 },
+                    { q: "Principle of closure means:", options: ["Opening shapes", "Filling gaps", "Breaking shapes", "Ignoring shapes"], correct: 1 },
+                    { q: "Pre-attentive processing is:", options: ["Conscious", "Unconscious", "Slow", "Deliberate"], correct: 1 },
+                    { q: "Color theory helps in:", options: ["Confusing users", "Effective communication", "Hiding data", "Creating noise"], correct: 1 },
+                    { q: "Similarity principle states:", options: ["Different objects", "Similar objects related", "Random grouping", "No grouping"], correct: 1 },
+                    { q: "Effective visualization should be:", options: ["Complex", "Simple and clear", "Confusing", "Cluttered"], correct: 1 },
+                    { q: "Analogous colors are:", options: ["Opposite", "Adjacent", "Random", "Complementary"], correct: 1 },
+                    { q: "Chart junk refers to:", options: ["Useful elements", "Unnecessary decorations", "Important data", "Key information"], correct: 1 },
+                    { q: "Visual hierarchy helps in:", options: ["Confusion", "Guiding attention", "Hiding data", "Random viewing"], correct: 1 },
+                    { q: "Continuity principle means:", options: ["Broken patterns", "Continuous patterns", "Random lines", "Disconnected elements"], correct: 1 },
+                    { q: "Triadic color scheme uses:", options: ["2 colors", "3 colors", "4 colors", "5 colors"], correct: 1 },
+                    { q: "Storytelling with data involves:", options: ["Only numbers", "Narrative", "Only text", "Only images"], correct: 1 },
+                    { q: "Contrast in design helps:", options: ["Hide elements", "Highlight elements", "Confuse users", "Create noise"], correct: 1 },
+                    { q: "White space in design is:", options: ["Wasted space", "Important element", "Unnecessary", "Harmful"], correct: 1 },
+                    { q: "Accessibility in visualization means:", options: ["Only experts", "Everyone can understand", "Only designers", "Only developers"], correct: 1 },
+                    { q: "Consistency in design helps:", options: ["Confusion", "Understanding", "Frustration", "Errors"], correct: 1 },
+                    { q: "Common fate principle means:", options: ["Static objects", "Moving together are related", "Random movement", "No movement"], correct: 1 }
+                ],
+                fillup: [
+                    { q: "Gestalt principle of ______ means objects close together are related", answer: "proximity" },
+                    { q: "______ colors are opposite on the color wheel", answer: "Complementary" },
+                    { q: "Cognition involves ______ processes", answer: "mental" },
+                    { q: "Principle of ______ means filling in gaps", answer: "closure" },
+                    { q: "Unnecessary decorations are called chart ______", answer: "junk" }
+                ],
+                twomark: [
+                    { q: "Explain Gestalt principles", answer: "1. Proximity: Objects close together perceived as related\n2. Similarity: Similar objects perceived as grouped\n3. Closure: We fill gaps to create complete shapes\n4. Continuity: We perceive continuous patterns\n5. Common Fate: Elements moving together are related" },
+                    { q: "Describe color theory applications", answer: "1. Complementary: Opposite colors for contrast\n2. Analogous: Adjacent colors for harmony\n3. Triadic: Three equidistant colors\n4. Monochromatic: Single color variations\n5. Used for highlighting, categorizing, showing relationships" },
+                    { q: "What are pre-attentive attributes?", answer: "Visual properties processed unconsciously:\n1. Color\n2. Size\n3. Orientation\n4. Shape\n5. Position\n6. Enclosure\nUsed to draw attention quickly before conscious processing" },
+                    { q: "Explain principles of effective visualization", answer: "1. Simplicity: Keep it simple\n2. Clarity: Make it clear\n3. Consistency: Maintain uniform design\n4. Accuracy: Represent data truthfully\n5. Relevance: Include only necessary elements\n6. Accessibility: Make it understandable to all" },
+                    { q: "What is storytelling with data?", answer: "1. Understanding audience\n2. Defining key message\n3. Choosing right visualizations\n4. Creating narrative flow\n5. Providing context\n6. Highlighting insights\n7. Making it memorable and actionable" }
+                ]
+            },
+            3: {
+                mcq: [
+                    { q: "Bar charts are best for:", options: ["Trends", "Comparing categories", "Proportions", "Relationships"], correct: 1 },
+                    { q: "Line charts show:", options: ["Categories", "Trends over time", "Proportions", "Hierarchy"], correct: 1 },
+                    { q: "Pie charts show:", options: ["Trends", "Parts of whole", "Relationships", "Distributions"], correct: 1 },
+                    { q: "Scatter plots reveal:", options: ["Categories", "Relationships", "Proportions", "Time series"], correct: 1 },
+                    { q: "Heat maps use:", options: ["Lines", "Color intensity", "Bars", "Points"], correct: 1 },
+                    { q: "Bubble charts add:", options: ["Time", "Third dimension", "Categories", "Text"], correct: 1 },
+                    { q: "Tree maps show:", options: ["Time series", "Hierarchical data", "Relationships", "Trends"], correct: 1 },
+                    { q: "Geographic maps display:", options: ["Numbers", "Spatial data", "Text", "Categories"], correct: 1 },
+                    { q: "Box plots show:", options: ["Only average", "Distribution", "Only max", "Only min"], correct: 1 },
+                    { q: "Area charts are similar to:", options: ["Bar charts", "Line charts", "Pie charts", "Scatter plots"], correct: 1 },
+                    { q: "Histogram shows:", options: ["Categories", "Distribution", "Trends", "Relationships"], correct: 1 },
+                    { q: "Stacked bar charts show:", options: ["Only totals", "Composition", "Only parts", "Trends only"], correct: 1 },
+                    { q: "Multidimensional visualization shows:", options: ["One variable", "Multiple variables", "No variables", "Text only"], correct: 1 },
+                    { q: "Sankey diagrams show:", options: ["Flow", "Categories", "Proportions", "Time"], correct: 1 },
+                    { q: "Radar charts display:", options: ["One variable", "Multiple variables", "Time only", "Text only"], correct: 1 },
+                    { q: "Gantt charts show:", options: ["Sales", "Project schedules", "Relationships", "Proportions"], correct: 1 },
+                    { q: "Waterfall charts show:", options: ["Cumulative effect", "Categories", "Proportions", "Relationships"], correct: 1 },
+                    { q: "Treemap uses:", options: ["Circles", "Rectangles", "Lines", "Points"], correct: 1 },
+                    { q: "Parallel coordinates show:", options: ["One dimension", "Multiple dimensions", "Time only", "Text only"], correct: 1 },
+                    { q: "Network diagrams show:", options: ["Relationships", "Categories", "Proportions", "Time"], correct: 1 }
+                ],
+                fillup: [
+                    { q: "Bar charts are best for ______ categories", answer: "comparing" },
+                    { q: "Line charts show ______ over time", answer: "trends" },
+                    { q: "Scatter plots show ______ between variables", answer: "relationships" },
+                    { q: "Heat maps use color ______ to show values", answer: "intensity" },
+                    { q: "Tree maps display ______ data", answer: "hierarchical" }
+                ],
+                twomark: [
+                    { q: "Compare bar and line charts", answer: "Bar Charts:\n- Compare categories\n- Show discrete data\n- Use bars\n- Best for categorical comparison\n\nLine Charts:\n- Show trends over time\n- Display continuous data\n- Use lines\n- Best for temporal trends" },
+                    { q: "Explain scatter and bubble charts", answer: "Scatter Plot:\n- Shows relationship between 2 variables\n- Uses x and y axes\n- Each point is one observation\n\nBubble Chart:\n- Extension of scatter plot\n- Adds 3rd variable via bubble size\n- Shows 3D relationships" },
+                    { q: "Describe heat maps and tree maps", answer: "Heat Maps:\n- Use color intensity\n- Good for matrix data\n- Show patterns in large datasets\n\nTree Maps:\n- Display hierarchical data\n- Use nested rectangles\n- Size represents value\n- Show part-to-whole" },
+                    { q: "What is geographical visualization?", answer: "1. Displays spatial/location data\n2. Uses maps as base\n3. Types: Choropleth, point maps, flow maps\n4. Applications: Demographics, sales, logistics\n5. Tools: GIS software, mapping libraries" },
+                    { q: "Explain multidimensional techniques", answer: "1. Parallel coordinates\n2. Scatter plot matrices\n3. Radar charts\n4. 3D visualizations\n5. Interactive dashboards\nShow multiple variables simultaneously to reveal complex patterns" }
+                ]
+            },
+            4: {
+                mcq: [
+                    { q: "Dashboard is:", options: ["Car part", "Visual display", "Database", "Tool"], correct: 1 },
+                    { q: "KPI stands for:", options: ["Key Performance Indicator", "Key Process Input", "Known Problem Issue", "Knowledge Process"], correct: 0 },
+                    { q: "Filters are used to:", options: ["Add data", "Narrow data", "Delete data", "Copy data"], correct: 1 },
+                    { q: "Slicers are:", options: ["Kitchen tools", "Visual filters", "Charts", "Tables"], correct: 1 },
+                    { q: "Drill-down means:", options: ["Mining", "Navigate to details", "Delete", "Copy"], correct: 1 },
+                    { q: "Power BI is a:", options: ["Game", "Dashboard tool", "Database", "OS"], correct: 1 },
+                    { q: "ETL stands for:", options: ["Extract Transform Load", "Email Text Link", "Enter Type List", "Eat Talk Leave"], correct: 0 },
+                    { q: "Data transformation involves:", options: ["Deleting", "Converting format", "Copying", "Ignoring"], correct: 1 },
+                    { q: "Real-time dashboard shows:", options: ["Old data", "Live data", "No data", "Wrong data"], correct: 1 },
+                    { q: "Publishing reports means:", options: ["Hiding", "Sharing", "Deleting", "Copying"], correct: 1 },
+                    { q: "Interactive exploration uses:", options: ["Static images", "Filters", "PDF", "Print"], correct: 1 },
+                    { q: "Data import is:", options: ["Exporting", "Bringing data in", "Deleting", "Backing up"], correct: 1 },
+                    { q: "Dashboard should be:", options: ["Cluttered", "Simple", "Confusing", "Complex"], correct: 1 },
+                    { q: "Sharing enables:", options: ["Confusion", "Collaboration", "Isolation", "Errors"], correct: 1 },
+                    { q: "Reports can be shared as:", options: ["Only paper", "PDF/web/interactive", "Only email", "Only print"], correct: 1 },
+                    { q: "Tableau is used for:", options: ["Gaming", "Visualization", "Word processing", "Calculations"], correct: 1 },
+                    { q: "Dashboard best practice:", options: ["Too much info", "Focus on KPIs", "No structure", "Random design"], correct: 1 },
+                    { q: "Data cleaning is part of:", options: ["Visualization", "Transformation", "Publishing", "Sharing"], correct: 1 },
+                    { q: "Scheduling reports means:", options: ["Deleting", "Auto updates", "Manual only", "Never"], correct: 1 },
+                    { q: "Permissions control:", options: ["Everything", "Access rights", "Nothing", "All users"], correct: 1 }
+                ],
+                fillup: [
+                    { q: "Dashboard displays key information on single ______", answer: "screen" },
+                    { q: "KPI stands for Key ______ Indicator", answer: "Performance" },
+                    { q: "______ allow narrowing data based on criteria", answer: "Filters" },
+                    { q: "ETL stands for Extract, Transform, ______", answer: "Load" },
+                    { q: "Drill-down enables navigation to ______ data", answer: "detailed" }
+                ],
+                twomark: [
+                    { q: "Define dashboard and its characteristics", answer: "Dashboard: Visual display of key information on single screen\n\nCharacteristics:\n1. Consolidated view\n2. Real-time data\n3. Interactive elements\n4. KPIs and metrics\n5. Visual and easy\n6. Supports decisions" },
+                    { q: "Explain filters, slicers, drill-down", answer: "Filters: Narrow data based on criteria\nSlicers: Visual interactive filter controls\nDrill-down: Navigate from summary to details\n\nTogether enable:\n- Interactive exploration\n- Multi-level analysis\n- User-controlled views" },
+                    { q: "Describe dashboard creation process", answer: "1. Define objectives and KPIs\n2. Connect to data sources\n3. Import and transform data\n4. Choose visualizations\n5. Design layout\n6. Add interactivity\n7. Test and refine\n8. Publish and share" },
+                    { q: "What is ETL process?", answer: "Extract: Get data from sources\nTransform: Clean, format, aggregate\nLoad: Put into target system\n\nIncludes:\n- Data cleaning\n- Format changes\n- Aggregation\n- Calculated fields\n- Preparation for visualization" },
+                    { q: "Explain publishing and sharing", answer: "Publishing:\n- Make reports available\n- Formats: PDF, web, interactive\n\nSharing:\n- Distribute via email, links\n- Set permissions\n- Schedule updates\n- Enable collaboration\n- Ensure accessibility" }
+                ]
+            },
+            5: {
+                mcq: [
+                    { q: "BI stands for:", options: ["Business Intelligence", "Business Intuition", "Basic Information", "Big Industry"], correct: 0 },
+                    { q: "Healthcare visualization helps in:", options: ["Only billing", "Patient outcomes", "Only appointments", "Only prescriptions"], correct: 1 },
+                    { q: "Social media analytics involves:", options: ["Counting friends", "Analyzing data", "Deleting posts", "Creating accounts"], correct: 1 },
+                    { q: "Web analytics tracks:", options: ["Only pages", "User behavior", "Only visitors", "Only servers"], correct: 1 },
+                    { q: "Research visualization helps in:", options: ["Nothing", "Presenting findings", "Only collection", "Only writing"], correct: 1 },
+                    { q: "Sentiment analysis shows:", options: ["Temperature", "Emotions", "Words", "Spelling"], correct: 1 },
+                    { q: "Predictive analytics shows:", options: ["Past only", "Future predictions", "Random", "Deleted data"], correct: 1 },
+                    { q: "Customer journey uses:", options: ["Pie charts", "Funnel charts", "Bar charts", "Scatter plots"], correct: 1 },
+                    { q: "Geographic visualization in business:", options: ["Decoration", "Market analysis", "Printing", "Navigation"], correct: 1 },
+                    { q: "Disease tracking uses:", options: ["Only billing", "Visualization", "Only appointments", "Only prescriptions"], correct: 1 },
+                    { q: "BI visualization enables:", options: ["Slow decisions", "Fast decisions", "Confusion", "Errors"], correct: 1 },
+                    { q: "Network analysis shows:", options: ["Sales", "Relationships", "Proportions", "Time"], correct: 1 },
+                    { q: "Engagement metrics include:", options: ["Only likes", "Likes, shares, comments", "Only views", "Only clicks"], correct: 1 },
+                    { q: "Conversion funnel shows:", options: ["Sales only", "User journey", "Proportions", "Time"], correct: 1 },
+                    { q: "Case studies demonstrate:", options: ["Theory", "Real applications", "Fiction", "Random data"], correct: 1 },
+                    { q: "COVID dashboard showed:", options: ["Only cases", "Multiple metrics", "Only deaths", "Only recovery"], correct: 1 },
+                    { q: "Sales analytics tracks:", options: ["Only revenue", "Multiple metrics", "Only products", "Only customers"], correct: 1 },
+                    { q: "Market trends show:", options: ["Past only", "Patterns", "Random data", "Deleted data"], correct: 1 },
+                    { q: "Customer segmentation divides:", options: ["Products", "Customers", "Markets", "Sales"], correct: 1 },
+                    { q: "Performance monitoring tracks:", options: ["Nothing", "KPIs", "Random data", "Deleted data"], correct: 1 }
+                ],
+                fillup: [
+                    { q: "BI stands for Business ______", answer: "Intelligence" },
+                    { q: "______ analytics analyzes social media data", answer: "Social media" },
+                    { q: "Web analytics tracks user ______", answer: "behavior" },
+                    { q: "______ analysis shows emotions in text", answer: "Sentiment" },
+                    { q: "______ analytics shows future predictions", answer: "Predictive" }
+                ],
+                twomark: [
+                    { q: "Explain BI visualization", answer: "BI Visualization:\n1. Dashboards for KPIs\n2. Sales tracking\n3. Market trends\n4. Customer segmentation\n5. Performance monitoring\n6. Competitive analysis\n\nBenefits: Faster decisions, pattern recognition" },
+                    { q: "Describe healthcare applications", answer: "1. Patient outcome tracking\n2. Disease outbreak mapping\n3. Clinical trial results\n4. Hospital operations\n5. Medical imaging\n6. Epidemiological studies\n7. Treatment effectiveness\n\nImproves patient care and research" },
+                    { q: "What is social media analytics?", answer: "Social Media:\n- Engagement metrics\n- Network analysis\n- Sentiment analysis\n- Influencer identification\n\nWeb Analytics:\n- User flow\n- Bounce rates\n- Conversion funnels\n- Traffic sources\n- Behavior patterns" },
+                    { q: "Explain research visualization", answer: "1. Data exploration\n2. Pattern discovery\n3. Statistical analysis\n4. Scientific representation\n5. Findings communication\n6. Collaborative research\n7. Publication graphics\n\nEnables discovery and communication" },
+                    { q: "Give COVID dashboard case study", answer: "COVID-19 Dashboard:\n- Real-time case tracking\n- Geographic spread\n- Trend analysis\n- Resource allocation\n- Public health decisions\n\nImpact:\n- Informed policies\n- Public awareness\n- Resource optimization\n- Global collaboration" }
+                ]
+            }
+        };
+
+        let currentUnit = 0;
+        let currentMode = '';
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+
+        function showUnit(unitNum) {
+            document.getElementById('mainMenu').style.display = 'none';
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            document.getElementById('unit' + unitNum).classList.add('active');
+            currentUnit = unitNum;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToMenu() {
+            document.getElementById('mainMenu').style.display = 'grid';
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            document.getElementById('quizContainer').classList.remove('active');
+            document.getElementById('motivationSection').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToLearning() {
+            document.getElementById('quizContainer').classList.remove('active');
+            document.getElementById('motivationSection').classList.remove('active');
+            document.getElementById('unit' + currentUnit).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function startTest(unit, mode) {
+            currentUnit = unit;
+            currentMode = mode;
+            currentQuestions = [...questionBank[unit][mode]];
+            currentIndex = 0;
+            score = 0;
+            
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            document.getElementById('quizContainer').classList.add('active');
+            document.getElementById('motivationSection').classList.remove('active');
+            
+            const modeNames = { mcq: 'MCQ Test', fillup: 'Fill-up Test', twomark: 'Two-Mark Test' };
+            document.getElementById('testTitle').textContent = 'Unit ' + unit + ' - ' + modeNames[mode];
+            
+            showQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showQuestion() {
+            const q = currentQuestions[currentIndex];
+            const container = document.getElementById('questionContainer');
+            const total = currentMode === 'twomark' ? currentQuestions.length * 2 : currentQuestions.length;
+            
+            document.getElementById('totalQuestions').textContent = total;
+            document.getElementById('currentScore').textContent = score;
+            document.getElementById('questionNum').textContent = currentIndex + 1;
+            document.getElementById('totalQ').textContent = currentQuestions.length;
+            document.getElementById('progressBar').style.width = ((currentIndex / currentQuestions.length) * 100) + '%';
+            
+            let html = '<div class="question-box">';
+            html += '<div class="question-text">📝 Question ' + (currentIndex + 1) + ': ' + q.q + '</div>';
+            
+            if (currentMode === 'mcq') {
+                html += '<div class="options">';
+                q.options.forEach((opt, idx) => {
+                    html += '<div class="option" onclick="checkMCQ(' + idx + ', ' + q.correct + ')">' + 
+                            String.fromCharCode(65 + idx) + '. ' + opt + '</div>';
+                });
+                html += '</div>';
+            } else if (currentMode === 'fillup') {
+                html += '<input type="text" id="fillupAnswer" placeholder="Type your answer here..." onkeypress="if(event.key===\'Enter\')checkFillup(\'' + q.answer.replace(/'/g, "\\'") + '\')">';
+                html += '<button class="btn" onclick="checkFillup(\'' + q.answer.replace(/'/g, "\\'") + '\')" style="margin-top: 15px;">✓ Submit Answer</button>';
+            } else {
+                html += '<div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 20px; border-radius: 10px; margin-top: 15px;">';
+                html += '<strong style="color: #2c3e50;">📝 Model Answer:</strong><br><br>';
+                html += '<div style="color: #555; line-height: 1.8; white-space: pre-line;">' + q.answer + '</div>';
+                html += '</div>';
+                html += '<button class="btn" onclick="nextQuestion()" style="margin-top: 15px;">Next Question →</button>';
+                score += 2;
+            }
+            
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function checkMCQ(selected, correct) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+            
+            if (selected === correct) {
+                options[selected].classList.add('correct');
+                score++;
+            } else {
+                options[selected].classList.add('wrong');
+                options[correct].classList.add('correct');
+            }
+            
+            document.getElementById('currentScore').textContent = score;
+            
+            setTimeout(() => {
+                nextQuestion();
+            }, 1500);
+        }
+
+        function checkFillup(correctAnswer) {
+            const userAnswer = document.getElementById('fillupAnswer').value.trim().toLowerCase();
+            if (!userAnswer) {
+                alert('Please enter an answer!');
+                return;
+            }
+            
+            const isCorrect = userAnswer === correctAnswer.toLowerCase() || 
+                            correctAnswer.toLowerCase().includes(userAnswer) ||
+                            userAnswer.includes(correctAnswer.toLowerCase());
+            
+            const input = document.querySelector('input');
+            input.disabled = true;
+            
+            if (isCorrect) {
+                input.style.background = '#00b894';
+                input.style.color = 'white';
+                input.value = '✓ Correct! ' + input.value;
+                score++;
+            } else {
+                input.style.background = '#d63031';
+                input.style.color = 'white';
+                input.value = '✗ Correct answer: ' + correctAnswer;
+            }
+            
+            document.getElementById('currentScore').textContent = score;
+            
+            setTimeout(() => {
+                nextQuestion();
+            }, 2000);
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < currentQuestions.length) {
+                showQuestion();
+            } else {
+                showMotivation();
+            }
+        }
+
+        function showMotivation() {
+            document.getElementById('quizContainer').classList.remove('active');
+            const motivationDiv = document.getElementById('motivationSection');
+            motivationDiv.classList.add('active');
+            
+            const total = currentMode === 'twomark' ? currentQuestions.length * 2 : currentQuestions.length;
+            const percentage = (score / total) * 100;
+            
+            let message = '';
+            let emoji = '';
+            
+            if (percentage >= 90) {
+                emoji = '🌟🏆';
+                message = 'OUTSTANDING PERFORMANCE! You have truly mastered this unit! Your dedication and hard work have paid off. Keep up this excellent spirit!';
+            } else if (percentage >= 75) {
+                emoji = '👏🎉';
+                message = 'GREAT JOB! You have a strong understanding of the concepts. Just a little more practice and you will be perfect!';
+            } else if (percentage >= 60) {
+                emoji = '👍👍';
+                message = 'GOOD EFFORT! You are on the right track. Review the topics once more and try again to improve your score!';
+            } else if (percentage >= 50) {
+                emoji = '📚✏️📚';
+                message = 'KEEP LEARNING! You are making progress. Don\'t give up - practice makes perfect. Review the material and try again!';
+            } else {
+                emoji = '💪💪';
+                message = 'NEVER GIVE UP! Every expert was once a beginner. Take time to review the concepts thoroughly and try again. You can definitely do this!';
+            }
+            
+            message += '<br><br>📊 Your Score: <strong>' + score + ' / ' + total + '</strong> (' + percentage.toFixed(1) + '%)';
+            message += '<br><br>🎓 "Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill';
+            message += '<br><br>🕌 "Show Us The Right Path" - Jamal Mohamed College';
+            message += '<br><br>' + emoji;
+            
+            document.getElementById('motivationText').innerHTML = message;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
